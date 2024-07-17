@@ -1,0 +1,10 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+
+[project]
+name = "Apophis"
+version = "0.0.1"
+
+dependencies = [
+    "numpy", "astropy"
+]
