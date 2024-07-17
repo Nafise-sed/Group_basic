@@ -1,0 +1,8 @@
+Apophis_Class.py
+README.md
+pyproject.toml
+Apophis.egg-info/PKG-INFO
+Apophis.egg-info/SOURCES.txt
+Apophis.egg-info/dependency_links.txt
+Apophis.egg-info/requires.txt
+Apophis.egg-info/top_level.txt
