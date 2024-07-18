@@ -61,7 +61,6 @@ class Apophis(object):
 		#self.x = self.x + g_dx
 		#self.y = self.y + g_dy
 		
-		print(g_vel)
 		return(self.x,self.y)
 		# Whatever calls get_position will need to return not just the x and y but also the 
 		# step number for plotting
@@ -83,5 +82,7 @@ class Apophis(object):
 		plt.plot(0,0,color='yellow',marker='*',markersize=20)
 		plt.show()
 
-a = Apophis(n=100)
-a.run_apophis()
+if __name__ == "__main__":
+
+	a = Apophis(n=100)
+	a.run_apophis()
