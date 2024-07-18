@@ -61,6 +61,9 @@ class Apophis(object):
 		#self.x = self.x + g_dx
 		#self.y = self.y + g_dy
 		
+		#UNIT TEST to ensure the velocity is viable
+		assert np.isnan(self.calc_g_vel(radius)) == False
+
 		return(self.x,self.y)
 		# Whatever calls get_position will need to return not just the x and y but also the 
 		# step number for plotting
