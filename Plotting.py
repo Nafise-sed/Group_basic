@@ -86,6 +86,3 @@ ani = animation.FuncAnimation(fig, update, frames = range(apophis.n),
                               init_func=init, blit=False, interval=100)
 
 plt.show()
-
-
-
