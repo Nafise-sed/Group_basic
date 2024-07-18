@@ -21,8 +21,22 @@ class Apophis(object):
 		self.sma = 0.9225 * c.au.to(u.m)
 	
 	def get_position(self):
+		"""
+			get_position: A function to calculate the x and y position of the asteroid 
+			at each time step. X and y are updated with each iteration so that the asteroid
+			traces out its orbit around the origin.
+
+			Output
+			------
+			self.x (float): the distance of the asteroid in meters from the origin in x
+			self.y (float): the distance of the asteroid in meters from the origin in y
+		"""
 		
 		radius = np.sqrt(self.x**2 + self.y**2)
+
+		#UNIT TEST to ensure the velocity is viable
+		assert np.isnan(self.calc_g_vel(radius)) == False
+
 		g_vel = self.calc_g_vel(radius)
 		g_angle = np.arctan2(self.y,self.x)
 		
@@ -58,11 +72,6 @@ class Apophis(object):
 
 		self.x = self.x + o_dx + g_dx
 		self.y = self.y + o_dy + g_dy
-		#self.x = self.x + g_dx
-		#self.y = self.y + g_dy
-		
-		#UNIT TEST to ensure the velocity is viable
-		assert np.isnan(self.calc_g_vel(radius)) == False
 
 		return(self.x,self.y)
 		# Whatever calls get_position will need to return not just the x and y but also the 
@@ -70,8 +79,18 @@ class Apophis(object):
 		# using self.x and self.y so that we can update the position with every iteration of get_position
 
 	def calc_g_vel(self, radius):
-		# We need a catch here for if the orbit becomes parabolic or hyperbolic
-		# (2/radius - 1/self.sma) < 0)
+		"""
+			calc_g_vel: A function to calculate the instantaneous velocity of the asteroid based 
+			on its distance from the origin and the semi-major axis
+
+			Input
+			-----
+			radius (float): The distance of the asteroid from the origin in meters
+
+			Output
+			------
+			g_vel (float): The instantaneous velocity 
+		"""
 		g_vel = (self.G * self.sol_mass * (2 / radius - 1 / self.sma)) ** 0.5
 		#vel_tan = (self.v * self.perx)/self.x
 		#vel_rad = np.sqrt(g_vel**2 - vel_tan**2)
