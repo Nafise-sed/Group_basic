@@ -5,6 +5,9 @@ requires = ["setuptools >= 61.0"]
 name = "Apophis"
 version = "0.0.1"
 
+[tools.setuptools]
+py-modules = ["Apophis_Class","Plotting"]
+
 dependencies = [
-    "numpy", "astropy"
+    "numpy", "astropy", "matplotlib"
 ]
